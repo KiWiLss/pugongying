@@ -1,0 +1,8 @@
+<resources>
+  <!-- sw600dp -->
+  <dimen name='m1'>2dp</dimen>
+  <dimen name='m2'>4dp</dimen>
+  <dimen name='ms_28'>45sp</dimen>
+  <dimen name='ms_32'>52sp</dimen>
+  <dimen name='ms_40'>64sp</dimen>
+</resources>

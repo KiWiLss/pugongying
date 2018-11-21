@@ -1,0 +1,8 @@
+<resources>
+  <!-- sw800dp -->
+  <dimen name='m1'>3dp</dimen>
+  <dimen name='m2'>5dp</dimen>
+  <dimen name='ms_28'>60sp</dimen>
+  <dimen name='ms_32'>69sp</dimen>
+  <dimen name='ms_40'>86sp</dimen>
+</resources>

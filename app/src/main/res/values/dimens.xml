@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--design 375px-->
+    <dimen name="m1">1dp</dimen>
+    <dimen name="m2">2dp</dimen>
+
+
+    <!--text size-->
+    <dimen name="ms_28">28sp</dimen>
+    <dimen name="ms_32">32sp</dimen>
+    <dimen name="ms_40">40sp</dimen>
+
+
+
+
+
+
+</resources>

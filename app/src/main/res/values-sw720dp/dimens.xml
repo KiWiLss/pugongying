@@ -1,0 +1,8 @@
+<resources>
+  <!-- sw720dp -->
+  <dimen name='m1'>2dp</dimen>
+  <dimen name='m2'>4dp</dimen>
+  <dimen name='ms_28'>54sp</dimen>
+  <dimen name='ms_32'>62sp</dimen>
+  <dimen name='ms_40'>77sp</dimen>
+</resources>

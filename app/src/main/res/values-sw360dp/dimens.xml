@@ -1,0 +1,8 @@
+<resources>
+  <!-- sw360dp -->
+  <dimen name='m1'>1dp</dimen>
+  <dimen name='m2'>2dp</dimen>
+  <dimen name='ms_28'>27sp</dimen>
+  <dimen name='ms_32'>31sp</dimen>
+  <dimen name='ms_40'>39sp</dimen>
+</resources>

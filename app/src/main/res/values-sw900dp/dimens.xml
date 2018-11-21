@@ -1,0 +1,8 @@
+<resources>
+  <!-- sw900dp -->
+  <dimen name='m1'>3dp</dimen>
+  <dimen name='m2'>5dp</dimen>
+  <dimen name='ms_28'>68sp</dimen>
+  <dimen name='ms_32'>77sp</dimen>
+  <dimen name='ms_40'>96sp</dimen>
+</resources>

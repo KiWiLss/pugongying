@@ -1,0 +1,8 @@
+<resources>
+  <!-- sw410dp -->
+  <dimen name='m1'>2dp</dimen>
+  <dimen name='m2'>3dp</dimen>
+  <dimen name='ms_28'>31sp</dimen>
+  <dimen name='ms_32'>35sp</dimen>
+  <dimen name='ms_40'>44sp</dimen>
+</resources>
