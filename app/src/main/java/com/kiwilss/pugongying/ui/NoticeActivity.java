@@ -37,6 +37,7 @@ public class NoticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
+
     }
 
     public void testOne(View view) {
@@ -300,30 +301,69 @@ public class NoticeActivity extends AppCompatActivity {
     }
 
     public void testtest(View view) {
-//        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//
-//        Notification.Builder builder3=new Notification.Builder(this);
-//        Intent intent3=new Intent(Intent.ACTION_VIEW,
-//                Uri.parse("http://www.jianshu.com/p/82e249713f1b"));
-//        PendingIntent pendingIntent3=PendingIntent.getActivity(this,0,intent3,0);
-//        builder3.setContentIntent(pendingIntent3);
-//        builder3.setSmallIcon(R.mipmap.ic_launcher);
-//        builder3.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher));
-//        builder3.setAutoCancel(true);
-//        builder3.setContentTitle("悬挂通知");
-//
-//        Intent XuanIntent=new Intent();
-//        XuanIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        XuanIntent.setClass(this,MainActivity.class);
-//
-//        PendingIntent xuanpengdIntent=PendingIntent.getActivity(this,0,XuanIntent,PendingIntent.FLAG_CANCEL_CURRENT);
-//        builder3.setFullScreenIntent(xuanpengdIntent,true);
-//        manager.notify(2,builder3.build());
-        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notice);
 
-        NotifyUtil notifyUtil = new NotifyUtil(this, 99);
-        notifyUtil.notify_customview(remoteViews,null,
-                R.mipmap.logo,"hello",false,false,false);
+        nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        Notification notification = builder.setTicker("设置滚动提示的文字")
+                .setContentTitle("标题")//设置通知的标题
+                .setContentText("通知的内容")//设置通知的内容
+                .setSmallIcon(R.mipmap.logo)
+                //.setWhen(System.currentTimeMillis())//设置时间
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.cktl4))
+                //.setContentInfo("设置附带信息")
+                .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)//设置声音和振动
+                //.setTicker("设置滚动提示的文字")
+                //.setOngoing(false)//是否可以手动移除
+                .setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("白费劲啊飞机的飞机啊房间爱疯没法讲方法诶" +
+                                "白费劲啊飞机的飞机啊房间爱疯没法讲方法诶" +
+                                "白费劲啊飞机的飞机啊房间爱疯没法讲方法诶" +
+                                "白费劲啊飞机的飞机啊房间爱疯没法讲方法诶"))
+                .setPriority(1)//设置优先级
+                .build();
+        nm.notify(3,notification);//发送通知
 
+//        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notice);
+//
+//        NotifyUtil notifyUtil = new NotifyUtil(this, 99);
+//        notifyUtil.notify_customview(remoteViews,null,
+//                R.mipmap.logo,"hello",false,false,false);
+
+//        nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        sendBigPictureStyleNotification(this,nm);
     }
+
+
+    public void sendBigPictureStyleNotification(Context context, NotificationManager nm) {
+        //创建点击通知时发送的广播
+        Intent intent = new Intent(context,NoticeReceiveActivity.class);
+        //intent.setAction(ACTION_BIG_PICTURE_STYLE);
+        PendingIntent pi = PendingIntent.getService(context,0,intent,0);
+        //创建大视图样式
+        Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle()
+                .setBigContentTitle("Big picture style notification ~ Expand title")
+                .setSummaryText("Demo for big picture style notification ! ~ Expand summery")
+                .bigPicture(BitmapFactory.decodeResource(context.getResources(),
+                        R.mipmap.cktl4));
+        //创建通知
+        Notification.Builder nb = new Notification.Builder(context)
+                //设置通知左侧的小图标
+                .setSmallIcon(R.mipmap.logo)
+                //设置通知标题
+                .setContentTitle("Big picture style notification")
+                //设置通知内容
+                .setContentText("Demo for big picture style notification !")
+                //设置点击通知后自动删除通知
+                .setAutoCancel(true)
+                //设置显示通知时间
+                .setShowWhen(true)
+                //设置点击通知时的响应事件
+                .setContentIntent(pi)
+                //设置大视图样式通知
+                .setStyle(bigPictureStyle);
+        //发送通知
+        nm.notify(88,nb.build());
+    }
+
 }
