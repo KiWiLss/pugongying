@@ -49,7 +49,6 @@ public class NoticeActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 9
                 , intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-
         //1,获取NotificationManager实例
          nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         //2,创建Notification实例
@@ -60,10 +59,12 @@ public class NoticeActivity extends AppCompatActivity {
                 .setContentIntent(pendingIntent)  //点击通知后，发送指定的PendingIntent
                 .setSmallIcon(R.mipmap.scbg);  //通知图标，必须设置否则通知不显示
 
+
         Notification build = builder.build();
         //3,发送通知
         nm.notify(1,build);
     }
+
     NotificationManager nm;
     public void testOne2(View view) {
         //自定义打开的界面
@@ -83,6 +84,7 @@ public class NoticeActivity extends AppCompatActivity {
                 .setContentText("设置任意内容白费劲啊飞机的飞机啊房间爱疯没法讲方法诶白费劲啊飞机的飞机啊房间爱疯没法讲方法诶白费劲啊飞机的飞机啊房间爱疯没法讲方法诶白费劲啊飞机的飞机啊房间爱疯没法讲方法诶")
                 .setAutoCancel(true)//设置可取消
                 .setContentInfo("设置任意附件信息")
+                .setShowWhen(true)//设置是否显示时间
                 .setTicker("通知来了")//设置通知首次出现提示
                 .setPriority(Notification.PRIORITY_DEFAULT)//设置通知的优先级,默认为0
                 .setDefaults(Notification.DEFAULT_VIBRATE)//设置振动声音等,需要振动权限

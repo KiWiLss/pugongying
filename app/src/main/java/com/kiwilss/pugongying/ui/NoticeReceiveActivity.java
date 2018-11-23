@@ -69,7 +69,7 @@ public class NoticeReceiveActivity extends AppCompatActivity {
     public void normal(View view) {
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.LOW);
 
-        notifyUtils.notifyNormal(null,R.mipmap.logo,null,"title",
+        notifyUtils.notifyNormal(null,R.mipmap.logo,0,null,"title",
                 "content",2,false,false,false);
     }
 
@@ -79,7 +79,7 @@ public class NoticeReceiveActivity extends AppCompatActivity {
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.LOW);
 
         notifyUtils.notifyCustomView(remoteViews,null,
-                R.mipmap.logo,"hello",9,false,false,false);
+                R.mipmap.logo,0,"hello",9,false,false,false);
     }
 
     public void custom2(View view) {
@@ -88,12 +88,12 @@ public class NoticeReceiveActivity extends AppCompatActivity {
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.LOW);
 
         notifyUtils.notifyCustomView2(remoteViews,null,
-                R.mipmap.logo,"hello",9,false,false,false);
+                R.mipmap.logo,0,"hello",9,false,false,false);
     }
 
     public void bigIconListener(View view) {//大图在魅族上会重叠
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.LOW);
-        notifyUtils.notifyBigPic(null,R.mipmap.cktl4,
+        notifyUtils.notifyBigPic(null,R.mipmap.cktl4,0,
                 "hello","邮件","这是一封重要的邮件",
                 R.mipmap.scbg,8,false,true,true);
     }
@@ -107,7 +107,7 @@ public class NoticeReceiveActivity extends AppCompatActivity {
     public void moreTextListener(View view) {
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.IMPORTANCE);
 
-        notifyUtils.notifyNormailMoreline(null,R.mipmap.logo,
+        notifyUtils.notifyNormailMoreline(null,R.mipmap.logo,0,
                 null,"多行文字",
                 "这是一封重要的邮件这是一封重要的邮件这是一封重要的邮件这是一封重要的邮件这是一封重要的邮件" +
                         "这是一封重要的邮件这是一封重要的邮件这是一封重要的邮件",
@@ -117,13 +117,14 @@ public class NoticeReceiveActivity extends AppCompatActivity {
 
     public void buttonListener(View view) {
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.IMPORTANCE);
-        notifyUtils.notifyButton(R.mipmap.cktl4,R.mipmap.cktl4,"左侧文字",null,
+        notifyUtils.notifyButton(R.mipmap.cktl4,0,R.mipmap.cktl4,"左侧文字",null,
                 R.mipmap.logo,"右侧",null,null,"带按钮的通知",
                 "通知通知套中套总投资天天",23,false,false,false);
     }
 
 
     public void headupListener(View view) {
+
         NotifyUtils notifyUtils = new NotifyUtils(this, NotificationChannels.IMPORTANCE);
         notifyUtils.notifyHeadUp(null,R.mipmap.logo,R.mipmap.scbg,
                 "通知","标题","简单内容",R.mipmap.ic_launcher,

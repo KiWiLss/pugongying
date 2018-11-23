@@ -48,7 +48,8 @@ public class NotifyUtils {
      * @param smallIcon
      * @param ticker
      */
-    private void setCompatBuilder(PendingIntent pendingIntent, int smallIcon, String ticker,
+    private void setCompatBuilder(PendingIntent pendingIntent, int smallIcon, int largeIcon,
+                                  String ticker,
                                   String title, String content, boolean sound, boolean vibrate, boolean lights) {
 
 
@@ -59,7 +60,9 @@ public class NotifyUtils {
         mBuilder.setContentTitle(title);// 设置通知中心的标题
         mBuilder.setContentText(content);// 设置通知中心中的内容
         mBuilder.setWhen(System.currentTimeMillis());
-
+        if (largeIcon != 0){//默认0是没有大图
+            mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), largeIcon));
+        }
         /*
          * 将AutoCancel设为true后，当你点击通知栏的notification后，它会自动被取消消失,
          * 不设置的话点击消息后也不清除，但可以滑动删除
@@ -105,10 +108,10 @@ public class NotifyUtils {
      * @param vibrate
      * @param lights
      */
-    public void notifyNormal(PendingIntent pendingIntent, int smallIcon,
+    public void notifyNormal(PendingIntent pendingIntent, int smallIcon,int largeIcon,
                                        String ticker, String title, String content, int id,
                                        boolean sound, boolean vibrate, boolean lights) {
-        setCompatBuilder(pendingIntent, smallIcon, ticker, title, content, sound, vibrate, lights);
+        setCompatBuilder(pendingIntent, smallIcon, largeIcon, ticker, title, content, sound, vibrate, lights);
         sent(id);
     }
 
@@ -121,10 +124,10 @@ public class NotifyUtils {
      * @param ticker
      */
     public void notifyCustomView(RemoteViews remoteViews, PendingIntent pendingIntent,
-                                  int smallIcon, String ticker, int id,
+                                  int smallIcon, int largeIcon, String ticker, int id,
                                   boolean sound, boolean vibrate, boolean lights) {
 
-        setCompatBuilder(pendingIntent, smallIcon, ticker, null, null, sound, vibrate, lights);
+        setCompatBuilder(pendingIntent, smallIcon, largeIcon, ticker, null, null, sound, vibrate, lights);
 
         notification = mBuilder.build();
         notification.contentView = remoteViews;
@@ -143,10 +146,10 @@ public class NotifyUtils {
      * @param lights
      */
     public void notifyCustomView2(RemoteViews remoteViews, PendingIntent pendingIntent,
-                                 int smallIcon, String ticker, int id,
+                                 int smallIcon, int largeIcon, String ticker, int id,
                                  boolean sound, boolean vibrate, boolean lights){
 
-        setCompatBuilder(pendingIntent, smallIcon, ticker, null, null, sound, vibrate, lights);
+        setCompatBuilder(pendingIntent, smallIcon, largeIcon, ticker, null, null, sound, vibrate, lights);
 
         Notification notification = mBuilder.build();
         notification.bigContentView=remoteViews;
@@ -162,10 +165,10 @@ public class NotifyUtils {
      * @param title
      * @param bigPic
      */
-    public void notifyBigPic(PendingIntent pendingIntent, int smallIcon, String ticker,
+    public void notifyBigPic(PendingIntent pendingIntent, int smallIcon, int largeIcon, String ticker,
                               String title, String content, int bigPic, int id,boolean sound, boolean vibrate, boolean lights) {
 
-        setCompatBuilder(pendingIntent, smallIcon, ticker, title, null, sound, vibrate, lights);
+        setCompatBuilder(pendingIntent, smallIcon, largeIcon, ticker, title, null, sound, vibrate, lights);
         NotificationCompat.BigPictureStyle picStyle = new NotificationCompat.BigPictureStyle();
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = true;
@@ -188,14 +191,15 @@ public class NotifyUtils {
      * @param title
      * @param content
      */
-    public void notifyNormailMoreline(PendingIntent pendingIntent, int smallIcon, String ticker,
+    public void notifyNormailMoreline(PendingIntent pendingIntent, int smallIcon, int largeIcon,
+                                      String ticker,
                                         String title, String content, int id, boolean sound, boolean vibrate, boolean lights) {
 
         final int sdk = Build.VERSION.SDK_INT;
         if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
-            notifyNormal(pendingIntent, smallIcon, ticker, title, content, id, sound, vibrate, lights);
+            notifyNormal(pendingIntent, smallIcon, largeIcon,ticker, title, content, id, sound, vibrate, lights);
         } else {
-            setCompatBuilder(pendingIntent, smallIcon, ticker, title,content,true, true, false);
+            setCompatBuilder(pendingIntent, smallIcon, largeIcon,ticker, title,content,true, true, false);
 
             NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle()
                     .bigText(content);
@@ -218,11 +222,12 @@ public class NotifyUtils {
      * @param title
      * @param content
      */
-    public void notifyButton(int smallIcon, int leftbtnicon, String lefttext, PendingIntent leftPendIntent, int rightbtnicon, String righttext, PendingIntent rightPendIntent, String ticker,
+    public void notifyButton(int smallIcon, int largeIcon, int leftbtnicon, String lefttext, PendingIntent leftPendIntent,
+                             int rightbtnicon, String righttext, PendingIntent rightPendIntent, String ticker,
                               String title, String content, int id, boolean sound, boolean vibrate, boolean lights) {
 
 
-        setCompatBuilder(rightPendIntent, smallIcon, ticker, title, content, sound, vibrate, lights);
+        setCompatBuilder(rightPendIntent, smallIcon, largeIcon, ticker, title, content, sound, vibrate, lights);
         mBuilder.addAction(leftbtnicon,
                 lefttext, leftPendIntent);
         mBuilder.addAction(rightbtnicon,
@@ -236,8 +241,8 @@ public class NotifyUtils {
                               PendingIntent rightPendingIntent, int id,
                               boolean sound, boolean vibrate, boolean lights) {
 
-        setCompatBuilder(pendingIntent, smallIcon, ticker, title, content, sound, vibrate, lights);
-        mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), largeIcon));
+        setCompatBuilder(pendingIntent, smallIcon, largeIcon,ticker, title, content, sound, vibrate, lights);
+        //mBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), largeIcon));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mBuilder.addAction(leftbtnicon,
