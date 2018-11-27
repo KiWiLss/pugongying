@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.kiwilss.pugongying.ui.MenuTestActivity;
 import com.kiwilss.pugongying.ui.NoticeActivity;
 import com.kiwilss.pugongying.ui.NoticeReceiveActivity;
 import com.pgyersdk.feedback.PgyerFeedbackManager;
@@ -127,5 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void noticeListener2(View view) {
         startActivity(new Intent(this,NoticeReceiveActivity.class));
+    }
+
+    public void drawerListener(View view) {
+        startActivity(new Intent(this,MenuTestActivity.class));
     }
 }

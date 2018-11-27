@@ -40,7 +40,7 @@
    <Button
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="异常"
+       android:text="获取权限"
        android:onClick="exceptionListener"/>
 
     <Button
@@ -53,6 +53,12 @@
         android:layout_height="wrap_content"
         android:text="8.0以上也可用通知"
         android:onClick="noticeListener2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="抽屉菜单样式"
+        android:onClick="drawerListener"/>
 <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="wrap_content">-->

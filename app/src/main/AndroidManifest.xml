@@ -58,6 +58,7 @@
 
         <activity android:name=".ui.NoticeActivity"/>
         <activity android:name=".ui.NoticeReceiveActivity"/>
+        <activity android:name=".ui.MenuTestActivity"/>
     </application>
 
 </manifest>

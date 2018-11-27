@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:id="@+id/first_group"
+        android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_fuli"
+            android:title="福利"
+            android:checked="true"/>
+
+        <item android:id="@+id/nav_fuli2"
+            android:title="福利2"
+            android:checked="true"/>
+
+        <item android:id="@+id/nav_fuli3"
+            android:title="福利3"
+            android:checked="true"/>
+    </group>
+
+    <group android:id="@+id/second_group"
+        android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_fuli4"
+            android:title="福利4"/>
+
+        <item android:id="@+id/nav_fuli5"
+            android:title="福利5"/>
+
+        <item android:id="@+id/nav_fuli6"
+            android:title="福利6"/>
+    </group>
+
+</menu>
